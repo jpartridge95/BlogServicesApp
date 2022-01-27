@@ -149,7 +149,7 @@ namespace Comments.Controllers
             return NotFound();
         }
 
-        [HttpPatch("incdislikes")]
+        [HttpPatch("inclikes")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> IncrementLikes(int commentId)

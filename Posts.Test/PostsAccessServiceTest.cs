@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Posts.Test
 {
-    public class UnitTest1
+    public class PostsAccessServiceTest
     {
         [Fact]
         public void Test1()

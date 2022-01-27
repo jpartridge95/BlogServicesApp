@@ -18,7 +18,7 @@ namespace Data.Controllers
             _access = access;
         }
 
-        [HttpGet("/all")]
+        [HttpGet("all")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<Post>>> GetAllPosts()
@@ -33,7 +33,7 @@ namespace Data.Controllers
             return posts;
         }
 
-        [HttpGet("/byUser")]
+        [HttpGet("byUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<Post>>> GetPostsByUser(int userId)
@@ -48,7 +48,7 @@ namespace Data.Controllers
             return posts;
         }
 
-        [HttpGet("/byPostId")]
+        [HttpGet("byPostId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Post>> GetPostById(int postId)
@@ -65,7 +65,7 @@ namespace Data.Controllers
             
         }
 
-        [HttpDelete("/byId")]
+        [HttpDelete("byId")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DeleteByPostId(int postId)
@@ -78,7 +78,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpDelete("/byUserId")]
+        [HttpDelete("byUserId")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DeletePostsFromUser(int userId)
@@ -91,7 +91,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPost("/CreatePost")]
+        [HttpPost("CreatePost")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> CreateNewPost(Post post)
@@ -104,7 +104,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/incLikes")]
+        [HttpPatch("incLikes")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> IncrementLikes(int postId)
@@ -117,7 +117,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/DecLikes")]
+        [HttpPatch("DecLikes")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DecrementLikes(int postId)
@@ -130,7 +130,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/incDislikes")]
+        [HttpPatch("incDislikes")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> IncrementDislikes(int postId)
@@ -143,7 +143,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/DecDislikes")]
+        [HttpPatch("DecDislikes")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DecrementDislikes(int postId)
@@ -156,7 +156,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/EditPost")]
+        [HttpPatch("EditPost")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> EditPost(int postId, Post post)

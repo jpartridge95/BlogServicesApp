@@ -1,3 +1,5 @@
+using Posts.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<PostsAccessService>();
+builder.Services.AddScoped<CommentsInteractionService>();
+builder.Services.AddHttpClient<PostsAccessService>();
+builder.Services.AddHttpClient<CommentsInteractionService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

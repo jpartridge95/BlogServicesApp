@@ -9,11 +9,7 @@ namespace Comments.Services
     {
 
         private HttpClient _httpClient;
-        /* Some thoughts */
-        /* Have individual services all capable of calling
-         to API in Data. 
-         In this service they will be the whole controller,
-         In other services they are likely to make building blocks.*/
+        
         public DataService(HttpClient httpClient)
         {
             _httpClient = httpClient;

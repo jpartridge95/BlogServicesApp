@@ -13,8 +13,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UserAccess>();
 builder.Services.AddScoped<PostAccess>();
 builder.Services.AddScoped<CommentAccess>();
-builder.Services.AddDbContext<SocialContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SocialContext")));
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<SocialContext>(options =>
+    options.UseSqlServer(builder.Configuration["ConnectionString"]));
+} else
+{
+    builder.Services.AddDbContext<SocialContext>(options =>
+    options.UseSqlServer(Environment.GetEnvironmentVariable("CONNECTION_STRING")));
+}
+
 
 var app = builder.Build();
 
