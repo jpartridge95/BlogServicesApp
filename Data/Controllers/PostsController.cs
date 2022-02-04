@@ -78,7 +78,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpDelete("byUserId")]
+        [HttpDelete("byUser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DeletePostsFromUser(int userId)

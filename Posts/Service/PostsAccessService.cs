@@ -1,4 +1,11 @@
 ﻿using Models;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Posts.Service
 {
@@ -14,59 +21,171 @@ namespace Posts.Service
         }
 
 
-        public Task<bool> CreatePost(Post post)
+        public virtual async Task<bool> CreatePost(Post post)
         {
-            throw new NotImplementedException();
+            var asJson = JsonSerializer.Serialize<Post>(post);
+            var content = new StringContent(asJson, Encoding.UTF8, "application/json");
+
+            var query = "createpost";
+
+            var response = await _httpClient.PostAsync(query, content);
+
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return true;
+            }
+            
+            return false;
         }
 
-        public Task<bool> DecrementDislikes(int postId)
+        public virtual async Task<bool> DecrementDislikes(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("decdislikes?postid={0}", postId);
+
+            var response = await _httpClient.PatchAsync(query, null);
+
+            if (response.StatusCode == HttpStatusCode.NoContent) return true;
+
+            return false;
         }
 
-        public Task<bool> DecrementLikes(int postId)
+        public virtual async Task<bool> DecrementLikes(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("declikes?postid={0}", postId);
+
+            var response = await _httpClient.PatchAsync(query, null);
+
+            if (response.StatusCode == HttpStatusCode.NoContent) return true;
+
+            return false;
         }
 
-        public Task<bool> DeleteByUser(int userId)
+        public virtual async Task<bool> DeleteByUser(int userId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("byuser?userid={0}", userId);
+
+            var response = await _httpClient.DeleteAsync(query);
+
+            if (response.StatusCode == HttpStatusCode.NoContent) return true;
+
+            return false;
         }
 
-        public Task<bool> DeletePost(int postId)
+        public virtual async Task<bool> DeletePost(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("byId?postid={0}", postId);
+
+            var response = await _httpClient.DeleteAsync(query);
+
+            if (response.StatusCode == HttpStatusCode.NoContent) return true;
+
+            return false;
         }
 
-        public Task<bool> EditPost(int postId, Post newData)
+        public virtual async Task<bool> EditPost(int postId, Post newData)
         {
-            throw new NotImplementedException();
+            var asJson = JsonSerializer.Serialize<Post>(newData);
+            var content = new StringContent(asJson, Encoding.UTF8, "application/json");
+
+            var query = String.Format("editpost?postId={0}", postId);
+
+            var response = await _httpClient.PatchAsync(query, content);
+
+            if (response.StatusCode == HttpStatusCode.NoContent) return true;
+
+            return false;
         }
 
-        public Task<List<Post>> GetAllPosts()
+        public virtual async Task<List<Post>> GetAllPosts()
         {
-            throw new NotImplementedException();
+            var query = "all";
+
+            List<Post> response;
+
+            try
+            {
+                response = await _httpClient.GetFromJsonAsync<List<Post>>(query);
+
+                if (response.Count == 0)
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                response = null;
+            }
+
+            return response;
         }
 
-        public Task<List<Post>> GetPostsFromUser(int userId)
+        public virtual async Task<List<Post>> GetPostsFromUser(int userId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("byUser?userId={0}", userId);
+
+            List<Post> response;
+
+            try
+            {
+                response = await _httpClient.GetFromJsonAsync<List<Post>>(query);
+
+                if (response.Count == 0)
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                response = null;
+            }
+
+            return response;
         }
 
-        public Task<Post> GetSinglePost(int postId)
+        public virtual async Task<Post> GetSinglePost(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("byPostId?postId={0}", postId);
+
+            Post response;
+
+            try
+            {
+                response = await _httpClient.GetFromJsonAsync<Post>(query);
+            }
+            catch
+            {
+                response = null;
+            }
+
+            return response;
         }
 
-        public Task<bool> IncrementDislikes(int postId)
+        public virtual async Task<bool> IncrementDislikes(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("incDislikes?postId={0}", postId);
+
+            var response = await _httpClient.PatchAsync(query, null);
+
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public Task<bool> IncrementLikes(int postId)
+        public virtual async Task<bool> IncrementLikes(int postId)
         {
-            throw new NotImplementedException();
+            var query = String.Format("incLikes?postId={0}", postId);
+
+            var response = await _httpClient.PatchAsync(query, null);
+
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
