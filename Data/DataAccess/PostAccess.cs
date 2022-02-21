@@ -65,6 +65,16 @@ namespace Data.DataAccess
 
             if (toDelete.Count > 0)
             {
+                foreach (Post post in toDelete)
+                {
+                    List<Comment> commentToDelete = _context.Comments.AsQueryable()
+                        .Where(y => y.ForPost == post.Id)
+                        .ToList();
+
+                    _context.Comments.RemoveRange(commentToDelete);
+                    _context.SaveChanges();
+                }
+
                 _context.Posts.RemoveRange(toDelete);
                 _context.SaveChanges();
                 return true;
@@ -78,6 +88,14 @@ namespace Data.DataAccess
             Post toDelete = await _context.Posts.FindAsync(postId);
             if (toDelete != null)
             {
+
+                List<Comment> commentToDelete = _context.Comments.AsQueryable()
+                        .Where(y => y.ForPost == toDelete.Id)
+                        .ToList();
+
+                _context.Comments.RemoveRange(commentToDelete);
+                _context.SaveChanges();
+
                 _context.Posts.Remove(toDelete);
                 _context.SaveChanges();
                 return true;

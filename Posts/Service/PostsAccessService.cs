@@ -20,7 +20,7 @@ namespace Posts.Service
             _httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("DATA_BASE_URL"));
         }
 
-
+        // Done
         public virtual async Task<bool> CreatePost(Post post)
         {
             var asJson = JsonSerializer.Serialize<Post>(post);
@@ -60,6 +60,7 @@ namespace Posts.Service
             return false;
         }
 
+        // done
         public virtual async Task<bool> DeleteByUser(int userId)
         {
             var query = String.Format("byuser?userid={0}", userId);
@@ -71,6 +72,7 @@ namespace Posts.Service
             return false;
         }
 
+        // done
         public virtual async Task<bool> DeletePost(int postId)
         {
             var query = String.Format("byId?postid={0}", postId);
@@ -102,6 +104,8 @@ namespace Posts.Service
 
             List<Post> response;
 
+            // Bit messy, just ensures that func returns null on empty and
+            // on error.
             try
             {
                 response = await _httpClient.GetFromJsonAsync<List<Post>>(query);

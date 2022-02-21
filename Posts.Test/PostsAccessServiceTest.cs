@@ -17,7 +17,7 @@ namespace Posts.Test
     {
         public PostsAccessServiceTest()
         {
-            Environment.SetEnvironmentVariable("DATA_BASE_URL", "https://localhost:7293/comments/");
+            Environment.SetEnvironmentVariable("DATA_BASE_URL", "https://test.com/");
         }
 
         [Fact]
