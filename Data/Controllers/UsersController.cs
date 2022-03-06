@@ -18,7 +18,7 @@ namespace Data.Controllers
             _access = access;
         }
 
-        [HttpGet("/byId")]
+        [HttpGet("byId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<User>> GetById(int userId)
@@ -32,7 +32,7 @@ namespace Data.Controllers
             return user;
         }
 
-        [HttpGet("/byemail")]
+        [HttpGet("byemail")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<User>> GetByEmail(string email)
@@ -47,7 +47,7 @@ namespace Data.Controllers
             return user;
         }
 
-        [HttpGet("/secrethiddenendpoint")]
+        [HttpGet("all")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<User>>> SecretHiddenEndpoint()
@@ -61,7 +61,7 @@ namespace Data.Controllers
             return users;
         }
 
-        [HttpDelete("/ById")]
+        [HttpDelete("ById")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> DeleteById(int userId)
@@ -74,7 +74,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPost("/Create")]
+        [HttpPost("Create")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> CreateUser(User user)
@@ -87,7 +87,7 @@ namespace Data.Controllers
             return NotFound();
         }
 
-        [HttpPatch("/edit")]
+        [HttpPatch("edit")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<bool>> EditUserInfo(int userId, User user)

@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATA_BASE_URL": "https://localhost:7293/Users/"
       },
       "applicationUrl": "https://localhost:7237;http://localhost:5237",
       "dotnetRunMessages": true
