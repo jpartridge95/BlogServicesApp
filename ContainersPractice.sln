@@ -31,7 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{EBF9C38A-7109-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{57EFB259-F040-4D69-B060-8292B46A7491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFrontend", "BlazorFrontend\BlazorFrontend.csproj", "{277ACFF5-A75A-410B-A43E-0727673F377E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFrontend", "BlazorFrontend\BlazorFrontend.csproj", "{277ACFF5-A75A-410B-A43E-0727673F377E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFrontEnd.Test", "BlazorFrontEnd.Test\BlazorFrontEnd.Test.csproj", "{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{277ACFF5-A75A-410B-A43E-0727673F377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{277ACFF5-A75A-410B-A43E-0727673F377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{277ACFF5-A75A-410B-A43E-0727673F377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{8678CE57-4918-4245-BB86-5E64B18223B9} = {57EFB259-F040-4D69-B060-8292B46A7491}
 		{2128FB03-2896-40C2-8ECF-16BC1E03541D} = {E6564F24-65EC-4EA0-BF4E-12A689406A01}
 		{277ACFF5-A75A-410B-A43E-0727673F377E} = {EBF9C38A-7109-486A-8BF4-231A9820D0C5}
+		{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223} = {E6564F24-65EC-4EA0-BF4E-12A689406A01}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA71B4B3-D1F7-4C28-8F18-90FACE12E89C}
