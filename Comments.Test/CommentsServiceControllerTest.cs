@@ -34,13 +34,13 @@ namespace Comments.Test
             };
             
             var dataService = new Mock<DataService>(new HttpClient());
-            dataService.Setup(d => d.GetByUser(It.IsAny<int>()))
+            dataService.Setup(d => d.GetByUser(It.IsAny<string>()))
                 .Returns(comments);
 
             var controller = new CommentsServiceController(dataService.Object);
 
             // Act
-            var response = await controller.GetByUser(0);
+            var response = await controller.GetByUser("123-123-abc");
 
             // Assert
             Assert.IsType<List<Comment>>(response.Value);
@@ -52,13 +52,13 @@ namespace Comments.Test
             // Arrange
             List<Comment> comments = null;
             var dataService = new Mock<DataService>(new HttpClient());
-            dataService.Setup(d => d.GetByUser(It.IsAny<int>()))
+            dataService.Setup(d => d.GetByUser(It.IsAny<string>()))
                 .Returns(comments);
 
             var controller = new CommentsServiceController(dataService.Object);
 
             // Act
-            var response = await controller.GetByUser(0);
+            var response = await controller.GetByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(response.Result);
@@ -254,13 +254,13 @@ namespace Comments.Test
             // Arrange
             var success = true;
             var dataService = new Mock<DataService>(new HttpClient());
-            dataService.Setup(d => d.DeleteByUser(It.IsAny<int>()))
+            dataService.Setup(d => d.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             var controller = new CommentsServiceController(dataService.Object);
 
             // Act
-            var response = await controller.DeleteByUser(0);
+            var response = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NoContentResult>(response);
@@ -272,13 +272,13 @@ namespace Comments.Test
             // Arrange
             var success = false;
             var dataService = new Mock<DataService>(new HttpClient());
-            dataService.Setup(d => d.DeleteByUser(It.IsAny<int>()))
+            dataService.Setup(d => d.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             var controller = new CommentsServiceController(dataService.Object);
 
             // Act
-            var response = await controller.DeleteByUser(0);
+            var response = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(response);

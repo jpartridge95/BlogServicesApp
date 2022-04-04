@@ -12,7 +12,7 @@ namespace Posts.Service
             _httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("COMMENTS_BASE_URL"));
         }
 
-        public virtual async Task<bool> DeleteCommentsById(int userId)
+        public virtual async Task<bool> DeleteCommentsById(string userId)
         {
             var query = String.Format("byuser?userId={0}", userId);
 

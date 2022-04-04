@@ -22,7 +22,7 @@ namespace Data.Test.ControllerTests
                     Id = 1,
                     Content = "test post",
                     Created = DateTime.Now,
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Title = "test title",
                     Likes = 1,
                     Dislikes = 1,
@@ -32,7 +32,7 @@ namespace Data.Test.ControllerTests
                     Id = 2,
                     Content = "test post",
                     Created = DateTime.Now,
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Title = "test title",
                     Likes = 1,
                     Dislikes = 1,
@@ -78,7 +78,7 @@ namespace Data.Test.ControllerTests
                     Id = 1,
                     Content = "test post",
                     Created = DateTime.Now,
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Title = "test title",
                     Likes = 1,
                     Dislikes = 1,
@@ -88,19 +88,19 @@ namespace Data.Test.ControllerTests
                     Id = 2,
                     Content = "test post",
                     Created = DateTime.Now,
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Title = "test title",
                     Likes = 1,
                     Dislikes = 1,
                 }
             };
             var access = new Mock<PostAccess>(null);
-            access.Setup(a => a.GetPostsFromUser(It.IsAny<int>()))
+            access.Setup(a => a.GetPostsFromUser(It.IsAny<string>()))
                 .ReturnsAsync(posts);
             var controller = new PostsController(null, access.Object);
 
             // Act
-            var result = await controller.GetPostsByUser(1);
+            var result = await controller.GetPostsByUser("123-123-abc");
 
             // Assert
             Assert.Equal(2, result.Value.Count);
@@ -112,12 +112,12 @@ namespace Data.Test.ControllerTests
             // Arrange
             var emptyPosts = new List<Post>();
             var access = new Mock<PostAccess>(null);
-            access.Setup(a => a.GetPostsFromUser(It.IsAny<int>()))
+            access.Setup(a => a.GetPostsFromUser(It.IsAny<string>()))
                 .ReturnsAsync(emptyPosts);
             var controller = new PostsController(null, access.Object);
 
             // Act
-            var result = await controller.GetPostsByUser(1);
+            var result = await controller.GetPostsByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(result.Result);
@@ -132,7 +132,7 @@ namespace Data.Test.ControllerTests
                     Id = 1,
                     Content = "test post",
                     Created = DateTime.Now,
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Title = "test title",
                     Likes = 1,
                     Dislikes = 1,
@@ -207,12 +207,12 @@ namespace Data.Test.ControllerTests
             // Arrange
             bool success = true;
             var access = new Mock<PostAccess>(null);
-            access.Setup(a => a.DeleteByUser(It.IsAny<int>()))
+            access.Setup(a => a.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
             var controller = new PostsController(null, access.Object);
 
             // Act
-            var result = await controller.DeletePostsFromUser(1);
+            var result = await controller.DeletePostsFromUser("123-123-abc");
 
             // Assert
             Assert.IsType<NoContentResult>(result.Result);
@@ -224,12 +224,12 @@ namespace Data.Test.ControllerTests
             // Arrange
             bool success = false;
             var access = new Mock<PostAccess>(null);
-            access.Setup(a => a.DeleteByUser(It.IsAny<int>()))
+            access.Setup(a => a.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
             var controller = new PostsController(null, access.Object);
 
             // Act
-            var result = await controller.DeletePostsFromUser(1);
+            var result = await controller.DeletePostsFromUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(result.Result);

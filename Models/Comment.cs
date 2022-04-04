@@ -4,7 +4,7 @@
     {
         // Read actions
         List<Comment> GetByPost(int postId);
-        List<Comment> GetByUser(int userId);
+        List<Comment> GetByUser(string userId);
 
         // Update actions
         Task<bool> IncrementLikes(int commentId);
@@ -19,13 +19,13 @@
         // Delete Actions
         Task<bool> DeleteComment (int commentId);
         Task<bool> DeleteByPost (int postId);
-        Task<bool> DeleteByUser (int userId);
+        Task<bool> DeleteByUser (string userId);
     }
 
     public class Comment
     {
         public int Id { get; set; }
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
         public int ForPost { get; set; }
         public string? Content { get; set; }
         public DateTime CreatedAt { get; set; }

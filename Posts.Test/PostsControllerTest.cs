@@ -28,13 +28,13 @@ namespace Posts.Test
             var postService = new Mock<PostsAccessService>(client);
 
             postService
-                .Setup(x => x.DeleteByUser(It.IsAny<int>()))
+                .Setup(x => x.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             var controller = new PostsController(postService.Object);
 
             // Act
-            var result = await controller.DeleteByUser(1);
+            var result = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NoContentResult>(result);
@@ -48,13 +48,13 @@ namespace Posts.Test
             var postService = new Mock<PostsAccessService>(client);
 
             postService
-                .Setup(x => x.DeleteByUser(It.IsAny<int>()))
+                .Setup(x => x.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             var controller = new PostsController(postService.Object);
 
             // Act
-            var result = await controller.DeleteByUser(1);
+            var result = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(result);
@@ -316,13 +316,13 @@ namespace Posts.Test
             var postService = new Mock<PostsAccessService>(client);
 
             postService
-                .Setup(x => x.GetPostsFromUser(It.IsAny<int>()))
+                .Setup(x => x.GetPostsFromUser(It.IsAny<string>()))
                 .ReturnsAsync(posts);
 
             var controller = new PostsController(postService.Object);
 
             // Act
-            var result = await controller.GetPostsFromUser(1);
+            var result = await controller.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.IsType<List<Post>>(result.Value);
@@ -336,13 +336,13 @@ namespace Posts.Test
             var postService = new Mock<PostsAccessService>(client);
 
             postService
-                .Setup(x => x.GetPostsFromUser(It.IsAny<int>()))
+                .Setup(x => x.GetPostsFromUser(It.IsAny<string>()))
                 .ReturnsAsync(posts);
 
             var controller = new PostsController(postService.Object);
 
             // Act
-            var result = await controller.GetPostsFromUser(1);
+            var result = await controller.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(result.Result);

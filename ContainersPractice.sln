@@ -33,7 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{57EFB259-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFrontend", "BlazorFrontend\BlazorFrontend.csproj", "{277ACFF5-A75A-410B-A43E-0727673F377E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFrontEnd.Test", "BlazorFrontEnd.Test\BlazorFrontEnd.Test.csproj", "{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFrontEnd.Test", "BlazorFrontEnd.Test\BlazorFrontEnd.Test.csproj", "{A02B32AC-CEED-4F57-B2F5-2A50C7C8C223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

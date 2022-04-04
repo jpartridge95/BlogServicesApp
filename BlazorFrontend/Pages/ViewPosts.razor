@@ -1,0 +1,28 @@
+﻿@page "/ViewPosts"
+@using BlazorFrontend.Services
+@using Models
+@inject PostsService service;
+
+<h3>All Posts</h3>
+
+@if (results != null)
+{
+    foreach (var item in results)
+    {
+        <p>@item.Title</p>
+        <p>@item.Content</p>
+    }
+} else
+{
+    <p>Nothing here chief</p>
+}
+
+@code {
+    List<Post> results;
+
+    protected override async void OnInitialized()
+    {
+        results = await service.GetAllPosts();
+        StateHasChanged();
+    }
+}

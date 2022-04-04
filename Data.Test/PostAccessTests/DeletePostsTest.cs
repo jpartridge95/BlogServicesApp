@@ -27,7 +27,7 @@ namespace Data.Test.PostAccessTests
             Context.Posts.Add(new Post()
             {
                 Content = "This is a post that is submitted to the db",
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Cool Post Title [F]"
@@ -81,7 +81,7 @@ namespace Data.Test.PostAccessTests
             Post post = new Post()
             {
                 Content = "A simple test post",
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "New post title"
@@ -90,7 +90,7 @@ namespace Data.Test.PostAccessTests
             Context.SaveChanges();
 
             // Act
-            await Access.DeleteByUser(1);
+            await Access.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.Empty(Context.Posts.ToList());
@@ -103,7 +103,7 @@ namespace Data.Test.PostAccessTests
             bool success;
 
             // Act
-            success = await Access.DeleteByUser(1);
+            success = await Access.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.True(success);
@@ -116,7 +116,7 @@ namespace Data.Test.PostAccessTests
             bool success;
 
             // Act
-            success = await Access.DeleteByUser(5);
+            success = await Access.DeleteByUser("123-123-abc5");
 
             // Assert
             Assert.False(success);

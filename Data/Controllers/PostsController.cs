@@ -36,7 +36,7 @@ namespace Data.Controllers
         [HttpGet("byUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<Post>>> GetPostsByUser(int userId)
+        public async Task<ActionResult<List<Post>>> GetPostsByUser(string userId)
         {
             List<Post> posts = await _access.GetPostsFromUser(userId);
             
@@ -81,7 +81,7 @@ namespace Data.Controllers
         [HttpDelete("byUser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<bool>> DeletePostsFromUser(int userId)
+        public async Task<ActionResult<bool>> DeletePostsFromUser(string userId)
         {
             if (await _access.DeleteByUser(userId))
             {

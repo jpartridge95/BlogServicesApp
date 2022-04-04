@@ -26,7 +26,7 @@ namespace Data.Test.PostAccessTests
 
             Context.Posts.Add(new Post() {
                 Content = "This is a post that is submitted to the db",
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Cool Post Title [F]"
@@ -43,7 +43,7 @@ namespace Data.Test.PostAccessTests
             Post post = new Post()
             {
                 Content = "Just some sample text",
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Test Title"
@@ -64,7 +64,7 @@ namespace Data.Test.PostAccessTests
             Post post = new Post()
             {
                 Content = "Just some sample text",
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Test Title"
@@ -84,7 +84,7 @@ namespace Data.Test.PostAccessTests
             Post post = new Post()
             {
                 Content = null,
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Test Title"

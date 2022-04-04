@@ -70,7 +70,7 @@ namespace Data.DataAccess
             return true;
         }
 
-        public virtual async Task<bool> DeleteByUser(int userId)
+        public virtual async Task<bool> DeleteByUser(string userId)
         {
             List<Comment> toDelete = _context.Comments.AsQueryable<Comment>()
                 .Where(c => c.CreatedBy == userId)
@@ -130,7 +130,7 @@ namespace Data.DataAccess
             return result;
         }
 
-        public virtual List<Comment> GetByUser(int userId)
+        public virtual List<Comment> GetByUser(string userId)
         {
             List<Comment> result = _context.Comments.AsQueryable<Comment>()
                 .Where(comment => comment.CreatedBy == userId)

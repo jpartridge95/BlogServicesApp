@@ -36,7 +36,7 @@ namespace Data.Controllers
         [HttpGet("/comments/byuser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<Comment>>> GetCommentsByUser(int userId)
+        public async Task<ActionResult<List<Comment>>> GetCommentsByUser(string userId)
         {
             List<Comment> comments = _access.GetByUser(userId);
 
@@ -67,7 +67,7 @@ namespace Data.Controllers
         [HttpDelete("/comments/byuser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<bool>> DeleteByUser(int userId)
+        public async Task<ActionResult<bool>> DeleteByUser(string userId)
         {
             if (await _access.DeleteByUser(userId))
             {

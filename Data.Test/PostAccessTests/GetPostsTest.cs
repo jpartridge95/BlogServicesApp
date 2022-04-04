@@ -29,7 +29,7 @@ namespace Data.Test.PostAccessTests
             context.Posts.Add(new Post()
             {
                 Content = "This is a post that is submitted to the db",
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Cool Post Title [F]",
@@ -59,7 +59,7 @@ namespace Data.Test.PostAccessTests
             context.Posts.Add(new Post()
             {
                 Content = "What a snazzy post am I right?",
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 Dislikes = 0,
                 Likes = 1,
                 Title = "Snazzy Post",
@@ -94,7 +94,7 @@ namespace Data.Test.PostAccessTests
         public async void GetPostsFromUser_ReturnsSingle_WhereOneExists()
         {
             // Arrange + Act
-            List<Post> onePost = await Access.GetPostsFromUser(1);
+            List<Post> onePost = await Access.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.Single(onePost);
@@ -109,7 +109,7 @@ namespace Data.Test.PostAccessTests
             context.SaveChanges();
 
             // Act
-            List<Post> noPosts = await Access.GetPostsFromUser(1);
+            List<Post> noPosts = await Access.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.Empty(noPosts);
@@ -124,7 +124,7 @@ namespace Data.Test.PostAccessTests
                 new Post()
                 {
                     Content = "What a snazzy post am I right?",
-                    CreatedBy = 1,
+                    CreatedBy = "123-123-abc",
                     Dislikes = 0,
                     Likes = 1,
                     Title = "Snazzy Post",
@@ -133,7 +133,7 @@ namespace Data.Test.PostAccessTests
                 new Post()
                 {
                     Content = "I swear my post is snazzier guys, check it",
-                    CreatedBy = 2,
+                    CreatedBy = "123-123-abc2",
                     Dislikes = 0,
                     Likes = 1,
                     Title = "Snazzier Post",
@@ -143,7 +143,7 @@ namespace Data.Test.PostAccessTests
             context.SaveChanges();
 
             // Act
-            List<Post> twoPosts = await Access.GetPostsFromUser(1);
+            List<Post> twoPosts = await Access.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.Equal(2, twoPosts.Count);

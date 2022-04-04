@@ -18,7 +18,7 @@ namespace Comments.Controllers
         [HttpGet("getbyuser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<Comment>>> GetByUser(int userId)
+        public async Task<ActionResult<List<Comment>>> GetByUser(string userId)
         {
             var response = _access.GetByUser(userId);
 
@@ -100,7 +100,7 @@ namespace Comments.Controllers
         [HttpDelete("byuser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> DeleteByUser(int userId)
+        public async Task<ActionResult> DeleteByUser(string userId)
         {
             if (await _access.DeleteByUser(userId))
             {

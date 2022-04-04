@@ -26,7 +26,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -44,7 +44,7 @@ namespace Data.Test.CommentAccessTests
             // Arrange
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "More snazzy content",
                 CreatedAt = DateTime.Now,
@@ -66,7 +66,7 @@ namespace Data.Test.CommentAccessTests
             bool success;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "More snazzy content",
                 CreatedAt = DateTime.Now,
@@ -88,7 +88,7 @@ namespace Data.Test.CommentAccessTests
             bool success;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = null,
                 CreatedAt = DateTime.Now,

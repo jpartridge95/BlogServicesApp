@@ -17,11 +17,6 @@ namespace Data.Context
         {
             modelBuilder.Entity<Comment>().ToTable("Comments");
 
-            modelBuilder.Entity<User>()
-                .ToTable("Users")
-                .HasIndex(u => new {u.Username, u.Email})
-                .IsUnique(true);
-
             modelBuilder.Entity<Post>().ToTable("Posts");
         }
     }

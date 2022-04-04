@@ -57,7 +57,7 @@ namespace Data.DataAccess
             return true;
         }
 
-        public virtual async Task<bool> DeleteByUser(int userId)
+        public virtual async Task<bool> DeleteByUser(string userId)
         {
             List<Post> toDelete = _context.Posts.AsQueryable()
                 .Where(x => x.CreatedBy == userId)
@@ -146,7 +146,7 @@ namespace Data.DataAccess
             }
         }
 
-        public virtual async Task<List<Post>> GetPostsFromUser(int userId)
+        public virtual async Task<List<Post>> GetPostsFromUser(string userId)
         {
             try
             {

@@ -26,7 +26,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Snazzy content",
                 CreatedAt = DateTime.Now,
@@ -36,7 +36,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 ForPost = 1,
                 Content = "Snazzy wazzy content",
                 CreatedAt = DateTime.Now,
@@ -46,7 +46,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 2,
                 Content = "Snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -56,7 +56,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 ForPost = 2,
                 Content = "Snazzy snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -113,7 +113,7 @@ namespace Data.Test.CommentAccessTests
         public async void DeleteByUser_DeletesCorrectly()
         {
             // Arrange
-            int userId = 1;
+            string userId = "123-123-abc";
 
             // Act
             Access.DeleteByUser(userId);
@@ -126,7 +126,7 @@ namespace Data.Test.CommentAccessTests
         public async void DeleteByUser_ReturnsTrue_OnDelete()
         {
             // Arrange
-            int userId = 1;
+            string userId = "123-123-abc";
             bool success;
 
             // Act
@@ -140,7 +140,7 @@ namespace Data.Test.CommentAccessTests
         public async void DeleteByUser_ReturnsFalse_OnNoDelete()
         {
             // Arrange
-            int userId = 10;
+            string userId = "haha";
             bool success;
 
             // Act

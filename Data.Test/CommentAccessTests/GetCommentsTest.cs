@@ -26,7 +26,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Snazzy content",
                 CreatedAt = DateTime.Now,
@@ -36,7 +36,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 ForPost = 1,
                 Content = "Snazzy wazzy content",
                 CreatedAt = DateTime.Now,
@@ -46,7 +46,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 2,
                 Content = "Snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -56,7 +56,7 @@ namespace Data.Test.CommentAccessTests
             
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 2,
+                CreatedBy = "123-123-abc2",
                 ForPost = 2,
                 Content = "Snazzy snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -101,7 +101,7 @@ namespace Data.Test.CommentAccessTests
         {
             // Arrange
             List<Comment> comments;
-            int postId = 1;
+            string postId = "123-123-abc";
 
             // Act
             comments = Access.GetByUser(postId);
@@ -114,10 +114,10 @@ namespace Data.Test.CommentAccessTests
         public async void GetByUser_ReturnsNull_WhenNoDataFound()
         {
             List<Comment> comments;
-            int postId = 3;
+            string userId = "123-123-abcNotFound";
 
             // Act
-            comments = Access.GetByUser(postId);
+            comments = Access.GetByUser(userId);
 
             // Assert
             Assert.Null(comments);

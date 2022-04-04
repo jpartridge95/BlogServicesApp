@@ -43,7 +43,7 @@ namespace Data.Test.ControllerTests
                     Likes = 1,
                     Dislikes = 1,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = 1
+                    CreatedBy = "123-123-abc"
                 },
                 new Comment()
                 {
@@ -52,7 +52,7 @@ namespace Data.Test.ControllerTests
                     Likes = 1,
                     Dislikes = 1,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = 1
+                    CreatedBy = "123-123-abc"
                 }
             };
             Mock<CommentAccess> access = new Mock<CommentAccess>(null);
@@ -74,13 +74,13 @@ namespace Data.Test.ControllerTests
             // Arrange
             List<Comment> comments = null;
             Mock<CommentAccess> access = new Mock<CommentAccess>(null);
-            access.Setup(a => a.GetByUser(It.IsAny<int>()))
+            access.Setup(a => a.GetByUser(It.IsAny<string>()))
                 .Returns(comments);
 
             CommentsController controller = new CommentsController(null, access.Object);
 
             // Act
-            var results = await controller.GetCommentsByUser(1);
+            var results = await controller.GetCommentsByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(results.Result);
@@ -99,7 +99,7 @@ namespace Data.Test.ControllerTests
                     Likes = 1,
                     Dislikes = 1,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = 1
+                    CreatedBy = "123-123-abc"
                 },
                 new Comment()
                 {
@@ -108,17 +108,17 @@ namespace Data.Test.ControllerTests
                     Likes = 1,
                     Dislikes = 1,
                     CreatedAt = DateTime.Now,
-                    CreatedBy = 1
+                    CreatedBy = "123-123-abc"
                 }
             };
             Mock<CommentAccess> access = new Mock<CommentAccess>(null);
-            access.Setup(a => a.GetByUser(It.IsAny<int>()))
+            access.Setup(a => a.GetByUser(It.IsAny<string>()))
                 .Returns(comments);
 
             CommentsController controller = new CommentsController(null, access.Object);
 
             // Act
-            var results = await controller.GetCommentsByUser(1);
+            var results = await controller.GetCommentsByUser("123-123-abc");
 
             // Assert
             Assert.Equal(2, results.Value.Count);
@@ -166,13 +166,13 @@ namespace Data.Test.ControllerTests
             // Arrange
             var success = true;
             Mock<CommentAccess> access = new Mock<CommentAccess>(null);
-            access.Setup(a => a.DeleteByUser(It.IsAny<int>()))
+            access.Setup(a => a.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             CommentsController controller = new CommentsController(null, access.Object);
 
             // Act
-            var results = await controller.DeleteByUser(1);
+            var results = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NoContentResult>(results.Result);
@@ -184,13 +184,13 @@ namespace Data.Test.ControllerTests
             // Arrange
             var success = false;
             Mock<CommentAccess> access = new Mock<CommentAccess>(null);
-            access.Setup(a => a.DeleteByUser(It.IsAny<int>()))
+            access.Setup(a => a.DeleteByUser(It.IsAny<string>()))
                 .ReturnsAsync(success);
 
             CommentsController controller = new CommentsController(null, access.Object);
 
             // Act
-            var results = await controller.DeleteByUser(1);
+            var results = await controller.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.IsType<NotFoundResult>(results.Result);

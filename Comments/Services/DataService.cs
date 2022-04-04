@@ -76,7 +76,7 @@ namespace Comments.Services
             return false;
         }
 
-        public virtual async Task<bool> DeleteByUser(int userId)
+        public virtual async Task<bool> DeleteByUser(string userId)
         {
             var query = String.Format("byuser?userId={0}", userId);
 
@@ -136,7 +136,7 @@ namespace Comments.Services
             }
         }
 
-        public virtual List<Comment> GetByUser(int userId)
+        public virtual List<Comment> GetByUser(string userId)
         {
             var query = String.Format("byuser?userId={0}", userId);
 

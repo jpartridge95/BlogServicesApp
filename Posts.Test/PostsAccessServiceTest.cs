@@ -224,7 +224,7 @@ namespace Posts.Test
             PostsAccessService postAccessService = new PostsAccessService(client);
 
             // Act
-            var result = await postAccessService.DeleteByUser(1);
+            var result = await postAccessService.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.True(result);
@@ -254,7 +254,7 @@ namespace Posts.Test
             PostsAccessService postAccessService = new PostsAccessService(client);
 
             // Act
-            var result = await postAccessService.DeleteByUser(1);
+            var result = await postAccessService.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.False(result);
@@ -519,7 +519,7 @@ namespace Posts.Test
             PostsAccessService postAccessService = new PostsAccessService(client);
 
             // Act
-            var result = await postAccessService.GetPostsFromUser(1);
+            var result = await postAccessService.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.IsType<List<Post>>(result);
@@ -554,7 +554,7 @@ namespace Posts.Test
             PostsAccessService postAccessService = new PostsAccessService(client);
 
             // Act
-            var result = await postAccessService.GetPostsFromUser(1);
+            var result = await postAccessService.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.Null(result);
@@ -586,7 +586,7 @@ namespace Posts.Test
             PostsAccessService postAccessService = new PostsAccessService(client);
 
             // Act
-            var result = await postAccessService.GetPostsFromUser(1);
+            var result = await postAccessService.GetPostsFromUser("123-123-abc");
 
             // Assert
             Assert.Null(result);

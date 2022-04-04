@@ -61,7 +61,7 @@ namespace Posts.Service
         }
 
         // done
-        public virtual async Task<bool> DeleteByUser(int userId)
+        public virtual async Task<bool> DeleteByUser(string userId)
         {
             var query = String.Format("byuser?userid={0}", userId);
 
@@ -123,7 +123,7 @@ namespace Posts.Service
             return response;
         }
 
-        public virtual async Task<List<Post>> GetPostsFromUser(int userId)
+        public virtual async Task<List<Post>> GetPostsFromUser(string userId)
         {
             var query = String.Format("byUser?userId={0}", userId);
 

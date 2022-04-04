@@ -19,7 +19,7 @@ namespace Posts.Controllers
         [HttpDelete("byuser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> DeleteByUser(int userId)
+        public async Task<ActionResult> DeleteByUser(string userId)
         {
             if (await _posts.DeleteByUser(userId)) return NoContent();
 
@@ -94,7 +94,7 @@ namespace Posts.Controllers
         [HttpGet("byUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<Post>>> GetPostsFromUser(int userId)
+        public async Task<ActionResult<List<Post>>> GetPostsFromUser(string userId)
         {
             var result = await _posts.GetPostsFromUser(userId);
 

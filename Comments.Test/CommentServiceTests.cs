@@ -114,7 +114,7 @@ namespace Comments.Test
             var dataAccessService = new DataService(client);
 
             // Act
-            var result = dataAccessService.GetByUser(1);
+            var result = dataAccessService.GetByUser("123-123-abc");
 
             // Assert
             Assert.IsType<List<Comment>>(result);
@@ -143,7 +143,7 @@ namespace Comments.Test
             var dataAccessService = new DataService(client);
 
             // Act
-            var result = dataAccessService.GetByUser(1);
+            var result = dataAccessService.GetByUser("123-123-abc");
 
             // Assert
             Assert.Null(result);
@@ -404,7 +404,7 @@ namespace Comments.Test
             var dataAccessService = new DataService(client);
 
             // Act
-            var result = await dataAccessService.DeleteByUser(1);
+            var result = await dataAccessService.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.True(result);
@@ -433,7 +433,7 @@ namespace Comments.Test
             var dataAccessService = new DataService(client);
 
             // Act
-            var result = await dataAccessService.DeleteByUser(1);
+            var result = await dataAccessService.DeleteByUser("123-123-abc");
 
             // Assert
             Assert.False(result);

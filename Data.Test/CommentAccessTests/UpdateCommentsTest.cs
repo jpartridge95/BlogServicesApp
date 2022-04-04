@@ -26,7 +26,7 @@ namespace Data.Test.CommentAccessTests
 
             Context.Comments.Add(new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Snazzy snazzy content",
                 CreatedAt = DateTime.Now,
@@ -209,7 +209,7 @@ namespace Data.Test.CommentAccessTests
             int commentId = 1;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Edited snazzy content",
                 CreatedAt = DateTime.Now,
@@ -232,7 +232,7 @@ namespace Data.Test.CommentAccessTests
             int commentId = 1;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Edited snazzy content",
                 CreatedAt = DateTime.Now,
@@ -255,7 +255,7 @@ namespace Data.Test.CommentAccessTests
             int commentId = 1;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = null,
                 CreatedAt = DateTime.Now,
@@ -278,7 +278,7 @@ namespace Data.Test.CommentAccessTests
             int commentId = 2;
             Comment comment = new Comment()
             {
-                CreatedBy = 1,
+                CreatedBy = "123-123-abc",
                 ForPost = 1,
                 Content = "Edited snazzy content",
                 CreatedAt = DateTime.Now,

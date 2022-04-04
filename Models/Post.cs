@@ -6,7 +6,7 @@ namespace Models
     public interface IPostActions
     {
         // Read Actions
-        Task<List<Post>> GetPostsFromUser(int userId);
+        Task<List<Post>> GetPostsFromUser(string userId);
         Task<Post> GetSinglePost(int postId);
         Task<List<Post>> GetAllPosts();
 
@@ -22,7 +22,7 @@ namespace Models
 
         // Delete Actions
         Task<bool> DeletePost(int postId);
-        Task<bool> DeleteByUser(int userId);
+        Task<bool> DeleteByUser(string userId);
     }
 
     public class Post
@@ -33,6 +33,6 @@ namespace Models
         public int Likes { get; set; }
         public int Dislikes { get; set; }
         public DateTime Created { get; set; }
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

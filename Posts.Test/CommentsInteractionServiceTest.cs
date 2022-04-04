@@ -44,7 +44,7 @@ namespace Posts.Test
             var postAccessService = new CommentsInteractionService(client);
 
             // Act
-            var result = await postAccessService.DeleteCommentsById(1);
+            var result = await postAccessService.DeleteCommentsById("123-123-abc");
 
             // Assert
             Assert.True(result);
@@ -74,7 +74,7 @@ namespace Posts.Test
             var postAccessService = new CommentsInteractionService(client);
 
             // Act
-            var result = await postAccessService.DeleteCommentsById(1);
+            var result = await postAccessService.DeleteCommentsById("123-123-abc");
 
             // Assert
             Assert.False(result);
